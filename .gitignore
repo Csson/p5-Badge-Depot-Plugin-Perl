@@ -1,0 +1,7 @@
+/Badge-Depot-Plugin-Perl-*
+/.build
+/_build*
+/Build
+MYMETA.*
+!META.json
+/.prove
