@@ -19,12 +19,6 @@ Version 0.0001, released 2015-03-07.
 
 Creates a Perl version badge, like this:
 
-<div>
-    <img src="https://img.shields.io/badge/perl-5.8.5+-brightgreen.svg" />
-</div>
-
-![Requires Perl 5.8+](https://img.shields.io/badge/perl-5.8.5+-brightgreen.svg)]
-
 This class consumes the [Badge::Depot](https://metacpan.org/pod/Badge::Depot) role.
 
 # ATTRIBUTES
