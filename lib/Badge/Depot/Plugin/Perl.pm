@@ -96,9 +96,9 @@ __END__
 
 Creates a Perl version badge, like this:
 
-=for html <img src="https://img.shields.io/badge/perl-5.8.5+-brightgreen.svg" />
+=for HTML <img src="https://img.shields.io/badge/perl-5.8.5+-brightgreen.svg" />
 
-=for markdown ![Requires Perl 5.8+](https://img.shields.io/badge/perl-5.8.5+-brightgreen.svg)]
+=for MARKDOWN ![Requires Perl 5.8+](https://img.shields.io/badge/perl-5.8.5+-brightgreen.svg)
 
 This class consumes the L<Badge::Depot> role.
 
