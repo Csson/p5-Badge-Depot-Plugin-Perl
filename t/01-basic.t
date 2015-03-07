@@ -3,7 +3,9 @@ use warnings;
 
 use Test::More;
 use if $ENV{'AUTHOR_TESTING'}, 'Test::Warnings';
-use Badge::Depot::Plugin::Perl;
 
-fail('this test is TODO!');
+BEGIN {
+	use_ok 'Badge::Depot::Plugin::Perl';
+};
+
 done_testing;
