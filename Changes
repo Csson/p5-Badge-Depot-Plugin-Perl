@@ -1,4 +1,28 @@
 Revision history for Badge-Depot-Plugin-Perl
 
 {{$NEXT}}
-     - Initial release
+ [API Changes]
+
+ [Bug Fixes]
+
+ [Documentation]
+
+ [Enhancements]
+
+ [Meta]
+
+ [New Features]
+
+ [Requirements]
+
+ [Revision]
+
+ [Testing]
+
+0.0101 2015-04-18T23:49:55Z CEST
+ [Documentation]
+ - Added a Pod::Weaver::Section::Badges example.
+
+0.0100 2015-03-07T12:46:14Z CET
+ - Initial release
+

@@ -114,7 +114,7 @@
    "provides" : {
       "Badge::Depot::Plugin::Perl" : {
          "file" : "lib/Badge/Depot/Plugin/Perl.pm",
-         "version" : "0.0001"
+         "version" : "0.0101"
       }
    },
    "release_status" : "stable",
@@ -129,6 +129,6 @@
          "web" : "https://github.com/Csson/p5-Badge-Depot-Plugin-Perl"
       }
    },
-   "version" : "0.0001"
+   "version" : "0.0101"
 }
 
