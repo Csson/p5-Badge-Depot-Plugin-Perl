@@ -85,12 +85,21 @@ __END__
 
 =head1 SYNOPSIS
 
+If used standalone:
+
     use Badge::Depot::Plugin::Perl;
 
     my $badge = Badge::Depot::Plugin::Perl->new(version => '5.8.5+');
 
     print $badge->to_html;
     # prints '<img src="https://img.shields.io/badge/perl-5.8.5+-brightgreen.svg" />'
+
+If used with L<Pod::Weaver::Section::Badges>, in weaver.ini:
+
+    [Badges]
+    ; other settings
+    badge = Perl
+    -perl_version = 5.8.5
 
 =head1 DESCRIPTION
 

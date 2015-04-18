@@ -4,9 +4,11 @@ Badge::Depot::Plugin::Perl - Perl version plugin for Badge::Depot
 
 # VERSION
 
-Version 0.0001, released 2015-03-07.
+Version 0.0101, released 2015-04-18.
 
 # SYNOPSIS
+
+If used standalone:
 
     use Badge::Depot::Plugin::Perl;
 
@@ -14,6 +16,13 @@ Version 0.0001, released 2015-03-07.
 
     print $badge->to_html;
     # prints '<img src="https://img.shields.io/badge/perl-5.8.5+-brightgreen.svg" />'
+
+If used with [Pod::Weaver::Section::Badges](https://metacpan.org/pod/Pod::Weaver::Section::Badges), in weaver.ini:
+
+    [Badges]
+    ; other settings
+    badge = Perl
+    -perl_version = 5.8.5
 
 # DESCRIPTION
 
