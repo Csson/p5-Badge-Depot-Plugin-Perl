@@ -4,7 +4,7 @@ Badge::Depot::Plugin::Perl - Perl version plugin for Badge::Depot
 
 # VERSION
 
-Version 0.0101, released 2015-04-18.
+Version 0.0102, released 2016-01-11.
 
 # SYNOPSIS
 
@@ -46,7 +46,7 @@ If it is neither given or exists in `META.json`, the string `unknown` is display
 
 A string to add after the version, if the version is fetched from `META.json`. Defaults to `+`.
 
-Not used if `version` is set.
+Not used if `version` is explicitly set.
 
 ## custom\_image\_url
 
@@ -70,7 +70,7 @@ Erik Carlsson <info@code301.com>
 
 # COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2015 by Erik Carlsson <info@code301.com>.
+This software is copyright (c) 2016 by Erik Carlsson.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
