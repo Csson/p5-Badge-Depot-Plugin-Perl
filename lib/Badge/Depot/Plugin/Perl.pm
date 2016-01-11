@@ -35,6 +35,7 @@ has custom_image_url => (
 
 sub BUILD {
     my $self = shift;
+
     $self->image_url(sprintf $self->custom_image_url, $self->version);
     $self->image_alt(sprintf 'Requires Perl %s', $self->version);
 }
@@ -42,7 +43,7 @@ sub BUILD {
 sub _build_version {
     my $self = shift;
 
-    return if !path('META.json')->exists;
+    return 'unknown' if !path('META.json')->exists;
 
     my $json = path('META.json')->slurp_utf8;
     my $data = decode_json($json);
@@ -51,30 +52,24 @@ sub _build_version {
 
     my $version = $data->{'prereqs'}{'runtime'}{'requires'}{'perl'};
 
-    my $nodot_version = $self->version_from($version, qr{^5\.(\d{3})(\d{3})$});
-    my $dotted_version = $self->version_from($version, qr{^5\.(\d+)(?:\.(\d+))?$});
+    if($version =~ m{^5\.(\d{3})(\d{3})$}) {
+        my $major = $1;
+        my $minor = $2;
+        $major =~ s{^0+}{};
+        $minor =~ s{^0+}{};
+        $version = "5.$major" . (defined $minor && length $minor ? ".$minor" : '');
+        $version .= $self->trailing;
+    }
+    elsif($version =~ m{^5\.(\d+)(?:\.(\d+))?$}) {
+        $version =~ s{\.0+}{.}g;
+        $version =~ s{\.+$}{};
+        $version .= $self->trailing;
+    }
+    else {
+        $version = 'unknown';
+    }
+    return $version;
 
-    return $nodot_version || $dotted_version || 'unknown';
-}
-
-sub version_from {
-    my $self = shift;
-
-    my $version = shift;
-    my $regex = shift;
-
-    $version =~ s{^v}{};
-
-    return if $version !~ m{$regex};
-
-    my $major = $1;
-    my $minor = $2;
-
-    $major =~ s{^0+}{};
-    $minor =~ s{^0+}{}x if defined $minor;
-
-    my $display_version = join '.' => 5, (length $major ? $major : ()), (defined $minor && length $minor ? $minor : ());
-    return $display_version . $self->trailing;
 }
 
 1;
@@ -125,7 +120,7 @@ If it is neither given or exists in C<META.json>, the string C<unknown> is displ
 
 A string to add after the version, if the version is fetched from C<META.json>. Defaults to C<+>.
 
-Not used if C<version> is set.
+Not used if C<version> is explicitly set.
 
 =head2 custom_image_url
 
