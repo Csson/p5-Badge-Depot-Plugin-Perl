@@ -4,7 +4,6 @@ Revision history for Badge-Depot-Plugin-Perl
  [API Changes]
 
  [Bug Fixes]
-  - Really fixed the bug where 'trailing' wasn't set.
 
  [Documentation]
 
@@ -17,6 +16,10 @@ Revision history for Badge-Depot-Plugin-Perl
  [Requirements]
 
  [Testing]
+
+0.0103 2016-01-13T22:54:07Z UTC
+ [Bug Fixes]
+ - Really fixed the bug where 'trailing' wasn't set.
 
 0.0102 2016-01-11T15:25:50Z UTC
  [Bug Fixes]
