@@ -19,6 +19,7 @@ has version => (
     is => 'ro',
     isa => Str,
     builder => 1,
+    lazy => 1,
     predicate => 1,
 );
 has trailing => (
@@ -57,7 +58,7 @@ sub _build_version {
         my $minor = $2;
         $major =~ s{^0+}{};
         $minor =~ s{^0+}{};
-        $version = "5.$major" . (defined $minor && length $minor ? ".$minor" : '');
+        $version = "5.$major" . ($minor ? ".$minor" : '');
         $version .= $self->trailing;
     }
     elsif($version =~ m{^5\.(\d+)(?:\.(\d+))?$}) {
@@ -114,7 +115,7 @@ All attributes are optional.
 
 The minimum supported Perl version. If it isn't given, it looks for a C<prereqs/runtime/requires/perl> entry in C<META.json> and uses that.
 
-If it is neither given or exists in C<META.json>, the string C<unknown> is displayed.
+It is set to 'unknown' if it is neither given or exists in C<META.json>.
 
 =head2 trailing
 

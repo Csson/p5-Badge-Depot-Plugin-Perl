@@ -4,7 +4,7 @@ Badge::Depot::Plugin::Perl - Perl version plugin for Badge::Depot
 
 # VERSION
 
-Version 0.0102, released 2016-01-11.
+Version 0.0103, released 2016-01-13.
 
 # SYNOPSIS
 
@@ -40,7 +40,7 @@ All attributes are optional.
 
 The minimum supported Perl version. If it isn't given, it looks for a `prereqs/runtime/requires/perl` entry in `META.json` and uses that.
 
-If it is neither given or exists in `META.json`, the string `unknown` is displayed.
+It is set to 'unknown' if it is neither given or exists in `META.json`.
 
 ## trailing
 

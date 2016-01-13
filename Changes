@@ -4,20 +4,23 @@ Revision history for Badge-Depot-Plugin-Perl
  [API Changes]
 
  [Bug Fixes]
+  - Really fixed the bug where 'trailing' wasn't set.
 
  [Documentation]
 
  [Enhancements]
 
- [Meta]
-
  [New Features]
+
+ [Other Changes]
 
  [Requirements]
 
- [Revision]
-
  [Testing]
+
+0.0102 2016-01-11T15:25:50Z UTC
+ [Bug Fixes]
+ - Fixed a bug where sometimes the 'trailing' attribute became undefined.
 
 0.0101 2015-04-18T23:49:55Z CEST
  [Documentation]
