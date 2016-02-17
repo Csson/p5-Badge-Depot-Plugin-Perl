@@ -8,14 +8,17 @@ Revision history for Badge-Depot-Plugin-Perl
  [Documentation]
 
  [Enhancements]
+  - Added 'color' attribute.
 
  [New Features]
 
  [Other Changes]
+  - Changed default color to blue.
 
  [Requirements]
 
  [Testing]
+  - Added real test.
 
 0.0103 2016-01-13T22:54:07Z UTC
  [Bug Fixes]

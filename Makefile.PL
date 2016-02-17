@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 
-use 5.010001;
+use 5.010000;
 
 use ExtUtils::MakeMaker;
 
@@ -14,7 +14,7 @@ my %WriteMakefileArgs = (
   },
   "DISTNAME" => "Badge-Depot-Plugin-Perl",
   "LICENSE" => "perl",
-  "MIN_PERL_VERSION" => "5.010001",
+  "MIN_PERL_VERSION" => "5.010000",
   "NAME" => "Badge::Depot::Plugin::Perl",
   "PREREQ_PM" => {
     "Badge::Depot" => 0,
@@ -29,9 +29,11 @@ my %WriteMakefileArgs = (
   "TEST_REQUIRES" => {
     "ExtUtils::MakeMaker" => 0,
     "File::Spec" => 0,
+    "IO::Handle" => 0,
+    "IPC::Open3" => 0,
     "Test::More" => "0.96"
   },
-  "VERSION" => "0.0103",
+  "VERSION" => "0.0104",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -42,6 +44,8 @@ my %FallbackPrereqs = (
   "Badge::Depot" => 0,
   "ExtUtils::MakeMaker" => 0,
   "File::Spec" => 0,
+  "IO::Handle" => 0,
+  "IPC::Open3" => 0,
   "JSON::MaybeXS" => 0,
   "Moose" => "2.0000",
   "MooseX::AttributeShortcuts" => 0,

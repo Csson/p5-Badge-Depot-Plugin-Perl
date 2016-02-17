@@ -1,3 +1,4 @@
+use 5.10.0;
 use strict;
 use warnings;
 
@@ -12,8 +13,9 @@ use JSON::MaybeXS 'decode_json';
 use Path::Tiny;
 with 'Badge::Depot';
 
-# VERSION
 # ABSTRACT: Perl version plugin for Badge::Depot
+# AUTHORITY
+our $VERSION = '0.0104';
 
 has version => (
     is => 'ro',
@@ -31,13 +33,20 @@ has custom_image_url => (
     is => 'ro',
     isa => Uri,
     coerce => 1,
-    default => 'https://img.shields.io/badge/perl-%s-brightgreen.svg',
+    lazy => 1,
+    default => 'https://img.shields.io/badge/perl-%s-%s.svg',
 );
+has color => (
+    is => 'ro',
+    isa => Str,
+    default => 'blue',
+);
+
 
 sub BUILD {
     my $self = shift;
 
-    $self->image_url(sprintf $self->custom_image_url, $self->version);
+    $self->image_url(sprintf $self->custom_image_url, $self->version, $self->color);
     $self->image_alt(sprintf 'Requires Perl %s', $self->version);
 }
 
@@ -88,7 +97,7 @@ If used standalone:
     my $badge = Badge::Depot::Plugin::Perl->new(version => '5.8.5+');
 
     print $badge->to_html;
-    # prints '<img src="https://img.shields.io/badge/perl-5.8.5+-brightgreen.svg" />'
+    # prints '<img src="https://img.shields.io/badge/perl-5.8.5+-blue.svg" />'
 
 If used with L<Pod::Weaver::Section::Badges>, in weaver.ini:
 
@@ -101,9 +110,7 @@ If used with L<Pod::Weaver::Section::Badges>, in weaver.ini:
 
 Creates a Perl version badge, like this:
 
-=for HTML <img src="https://img.shields.io/badge/perl-5.8.5+-brightgreen.svg" />
-
-=for markdown ![Requires Perl 5.8+](https://img.shields.io/badge/perl-5.8.5+-brightgreen.svg)
+=for html <img src="https://img.shields.io/badge/perl-5.8.5+-blue.svg" />
 
 This class consumes the L<Badge::Depot> role.
 
@@ -127,9 +134,16 @@ Not used if C<version> is explicitly set.
 
 By default, this module shows an image from L<shields.io|https://shields.io>. Use this attribute to override that with a custom url. Use a C<%s> placeholder where the version should be inserted.
 
+=head2 color
+
+Default: C<blue>
+
+See L<shields.io|https://shields.io> for possible colors.
+
 =head1 SEE ALSO
 
 =for :list
 * L<Badge::Depot>
+* L<Task::Badge::Depot>
 
 =cut

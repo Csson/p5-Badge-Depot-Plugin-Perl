@@ -4,7 +4,7 @@ Badge::Depot::Plugin::Perl - Perl version plugin for Badge::Depot
 
 # VERSION
 
-Version 0.0103, released 2016-01-13.
+Version 0.0104, released 2016-02-17.
 
 # SYNOPSIS
 
@@ -15,7 +15,7 @@ If used standalone:
     my $badge = Badge::Depot::Plugin::Perl->new(version => '5.8.5+');
 
     print $badge->to_html;
-    # prints '<img src="https://img.shields.io/badge/perl-5.8.5+-brightgreen.svg" />'
+    # prints '<img src="https://img.shields.io/badge/perl-5.8.5+-blue.svg" />'
 
 If used with [Pod::Weaver::Section::Badges](https://metacpan.org/pod/Pod::Weaver::Section::Badges), in weaver.ini:
 
@@ -28,7 +28,9 @@ If used with [Pod::Weaver::Section::Badges](https://metacpan.org/pod/Pod::Weaver
 
 Creates a Perl version badge, like this:
 
-![Requires Perl 5.8+](https://img.shields.io/badge/perl-5.8.5+-brightgreen.svg)
+<div>
+    <img src="https://img.shields.io/badge/perl-5.8.5+-blue.svg" />
+</div>
 
 This class consumes the [Badge::Depot](https://metacpan.org/pod/Badge::Depot) role.
 
@@ -52,9 +54,16 @@ Not used if `version` is explicitly set.
 
 By default, this module shows an image from [shields.io](https://shields.io). Use this attribute to override that with a custom url. Use a `%s` placeholder where the version should be inserted.
 
+## color
+
+Default: `blue`
+
+See [shields.io](https://shields.io) for possible colors.
+
 # SEE ALSO
 
 - [Badge::Depot](https://metacpan.org/pod/Badge::Depot)
+- [Task::Badge::Depot](https://metacpan.org/pod/Task::Badge::Depot)
 
 # SOURCE
 
